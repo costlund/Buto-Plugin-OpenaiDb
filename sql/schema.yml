@@ -1,0 +1,24 @@
+tables:
+  openai_chat:
+    field:
+      id:
+        primary_key: true
+        type: varchar(50)
+        not_null: true
+      request:
+        type: text
+      response:
+        type: text
+      tag:
+        type: varchar(255)
+extra:
+  field:
+    created_at:
+      type: timestamp
+      default: CURRENT_TIMESTAMP
+    updated_at:
+      type: timestamp
+    created_by:
+      type: varchar(50)
+    updated_by:
+      type: varchar(50)

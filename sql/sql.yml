@@ -1,0 +1,77 @@
+db_openai_chat_select:
+  sql: |
+    select 
+    id
+    ,request
+    ,response
+    ,tag
+    ,created_at
+    ,updated_at
+    ,created_by
+    ,updated_by
+    from openai_chat
+  select:
+    - id
+    - request
+    - response
+    - tag
+    - created_at
+    - updated_at
+    - created_by
+    - updated_by
+db_openai_chat_select_one_by_tag:
+  sql: |
+    select 
+    id
+    ,request
+    ,response
+    ,tag
+    ,created_at
+    ,updated_at
+    ,created_by
+    ,updated_by
+    from openai_chat
+    where tag=?
+    order by created_at desc
+    limit 1
+  select:
+    - id
+    - request
+    - response
+    - tag
+    - created_at
+    - updated_at
+    - created_by
+    - updated_by
+  params:
+    -
+      type: s
+      value: rs:tag
+db_openai_chat_insert:
+  sql: |
+    insert into openai_chat(
+    id
+    ,request
+    ,response
+    ,tag
+    ,created_by
+    ) values (
+    ?
+    ,?
+    ,?
+    ,?
+    ,'[user_id]'
+    );
+  params:
+    -
+      type: s
+      value: rs:id
+    -
+      type: s
+      value: rs:request
+    -
+      type: s
+      value: rs:response
+    -
+      type: s
+      value: rs:tag

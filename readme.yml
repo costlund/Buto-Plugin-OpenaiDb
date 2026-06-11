@@ -1,0 +1,53 @@
+readme:
+  name: Buto-Plugin-OpenaiDb
+  description: |
+    Built for usage by plugin openai/api_v1. 
+    - Insert request into db.
+    - Get a record by tag if exist.
+  item:
+    -
+      name: Settings
+      description: |
+        Theme settings.
+        ````
+        plugin:
+          openai:
+            db:
+              settings: 'yml:/../buto_data/theme/(theme)/openai_db.yml'
+        ````
+        openai_db.yml.
+        ````
+        server: '127.0.0.1'
+        database: 'db_name'
+        user_name: '...'
+        password: '...'
+        ````
+    -
+      name: Usage
+    -
+      name: Pages
+      item: {  }
+    -
+      name: Widgets
+      item: {  }
+    -
+      name: Event
+      item: {  }
+    -
+      name: Construct
+      item:
+        -
+          name: __construct
+    -
+      name: Methods
+      item:
+        -
+          name: db_open
+        -
+          name: getSql
+        -
+          name: db_openai_chat_insert
+        -
+          name: db_openai_chat_select
+        -
+          name: db_openai_chat_select_one_by_tag
