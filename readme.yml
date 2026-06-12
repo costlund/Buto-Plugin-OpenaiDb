@@ -13,9 +13,10 @@ readme:
         plugin:
           openai:
             db:
-              settings: 'yml:/../buto_data/theme/(theme)/openai_db.yml'
+              data:
+                mysql: 'yml:/../buto_data/theme/(theme)/mysql.yml'
         ````
-        openai_db.yml.
+        mysql.yml.
         ````
         server: '127.0.0.1'
         database: 'db_name'
