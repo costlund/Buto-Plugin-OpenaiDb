@@ -7,9 +7,8 @@ class PluginOpenaiDb{
      * settings
      */
     $this->settings = wfPlugin::getPluginSettings('openai/db', true);
-    $this->settings->set('settings', wfSettings::getSettingsFromYmlString($this->settings->get('settings')));
-    if(!$this->settings->get('settings')){
-      wfException::getException(__CLASS__, __FUNCTION__, 'Settings is missing.');
+    if(!$this->settings->get('data/mysql')){
+      wfException::getException(__CLASS__, __FUNCTION__, 'Settings is missing (data/mysql).');
     }
     /**
      * mysql
@@ -18,7 +17,7 @@ class PluginOpenaiDb{
     $this->mysql =new PluginWfMysql();
   }
   public function db_open(){
-    $this->mysql->open($this->settings->get('settings'));
+    $this->mysql->open($this->settings->get('data/mysql'));
   }
   public function getSql($key){
     $sql = new PluginWfYml(__DIR__.'/sql/sql.yml', $key);
